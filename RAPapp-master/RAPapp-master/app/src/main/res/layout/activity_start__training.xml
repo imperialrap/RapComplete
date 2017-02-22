@@ -33,12 +33,22 @@
         android:text="@string/start_recording"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="104dp"
         android:textSize="25dp"
         android:id="@+id/button13"
-        android:layout_above="@+id/button12"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClick"
-        tools:background="@android:color/holo_orange_dark" />
+        android:onClick="onClickStartRecording"
+        tools:background="@android:color/holo_orange_dark"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="@string/stop_recording"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:id="@+id/button25"
+        android:onClick="onClickStopRecording"
+        tools:background="@android:color/holo_orange_dark"
+        android:layout_below="@+id/button13"
+        android:layout_centerHorizontal="true" />
      
 </RelativeLayout>
