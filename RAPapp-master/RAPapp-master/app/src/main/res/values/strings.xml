@@ -23,6 +23,7 @@
     <string name="LastTraining">Last Training</string>
     <string name="MainScreen">Back</string>
     <string name="title_activity_login">Sign in</string>
+    <string name="start_recording">Start Recording</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
