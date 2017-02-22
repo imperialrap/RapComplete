@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_last__training"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.adinavm.rapapp.Last_Training"
+    android:backgroundTint="@android:color/holo_red_dark"
+    android:background="@android:color/holo_red_dark">
+
+    <TextView
+        android:text="@string/LastTraining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView15"
+        android:textSize="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView15"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/textView16" />
+
+    <TextView
+        android:text="Distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView16"
+        android:layout_alignStart="@+id/textView16"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView17" />
+
+    <TextView
+        android:text="Speed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView17"
+        android:layout_alignStart="@+id/textView17"
+        android:layout_marginTop="17dp"
+        android:id="@+id/textView18" />
+
+    <TextView
+        android:text="time taken from arduino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView20"
+        android:layout_above="@+id/textView17"
+        android:layout_alignEnd="@+id/textView15" />
+
+    <Button
+        android:text="@string/MainScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/button12"
+        android:onClick="onClickBack"/>
+
+    <TextView
+        android:text="distance taken from arduino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView19"
+        android:layout_alignBaseline="@+id/textView17"
+        android:layout_alignBottom="@+id/textView17"
+        android:layout_alignStart="@+id/textView20" />
+
+    <TextView
+        android:text="speed = distance/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView21"
+        android:layout_alignBaseline="@+id/textView18"
+        android:layout_alignBottom="@+id/textView18"
+        android:layout_alignStart="@+id/textView19" />
+
+</RelativeLayout>
