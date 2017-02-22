@@ -38,7 +38,6 @@ public class Start_Training extends AppCompatActivity {
         });
 
         button25.setOnClickListener(new View.OnClickListener(){
-            @Override
             public void onClickStopRecording(View view) {
                 enableDisableBT2();
             }
