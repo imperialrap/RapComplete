@@ -30,18 +30,18 @@ public class Start_Training extends AppCompatActivity {
 
         mBluetoothAdapter = mBluetoothAdapter.getDefaultAdapter();
 
-        button13.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClickStartRecording(View view) {
-                enableDisableBT1();
-            }
-        });
+      //  button13.setOnClickListener(new View.OnClickListener(){
+      //      @Override
+      //      public void onClickStartRecording(View view) {
+      //          enableDisableBT1();
+      //      }
+      //  });
 
-        button25.setOnClickListener(new View.OnClickListener(){
-            public void onClickStopRecording(View view) {
-                enableDisableBT2();
-            }
-        });
+      //  button25.setOnClickListener(new View.OnClickListener(){
+      //      public void onClickStopRecording(View view) {
+      //          enableDisableBT2();
+      //      }
+      //  });
 
     }
 
@@ -53,8 +53,8 @@ public class Start_Training extends AppCompatActivity {
             Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivity(enableIntent);
 
-            IntentFilter BTIntent = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
-            registerReceiver(mBroadastReceiver1, BTIntent);
+    //        IntentFilter BTIntent = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
+    //        registerReceiver(mBroadastReceiver1, BTIntent);
         }
         else if(mBluetoothAdapter.isEnabled()){
             Log.d(TAG, "enableDisableBT: Bluetooth already ON");
@@ -75,36 +75,36 @@ public class Start_Training extends AppCompatActivity {
 
     }
 
-    private final BroadcastReceiver mBroadastReceiver1 = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            String action = Intent.getAction();
-            if (action.equals(mBluetoothAdapter.ACTION_STATE_CHANGED)){
-                final int state = Intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, mBluetoothAdapter.ERROR);
+    // private final BroadcastReceiver mBroadastReceiver1 = new BroadcastReceiver() {
+     //   public void onReceive(Context context, Intent intent) {
+     //       String action = Intent.getAction();
+     //       if (action.equals(mBluetoothAdapter.ACTION_STATE_CHANGED)){
+     //           final int state = Intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, mBluetoothAdapter.ERROR);
 
-                switch(state){
-                    case BluetoothAdapter.STATE_OFF:
-                        Log.d(TAG, "Bluetooth: STATE OFF");
-                        break;
-                    case BluetoothAdapter.STATE_TURNING_OFF:
-                        Log.d(TAG, "Bluetooth: STATE TURNING OFF");
-                        break;
-                    case BluetoothAdapter.STATE_TURNING_ON:
-                        Log.d(TAG, "Bluetooth: STATE TURNING ON");
-                        break;
-                    case BluetoothAdapter.STATE_ON:
-                        Log.d(TAG, "Bluetooth: STATE ON");
-                        break;
-                }
-            }
+     //           switch(state){
+     //               case BluetoothAdapter.STATE_OFF:
+     //                   Log.d(TAG, "Bluetooth: STATE OFF");
+     //                   break;
+     //               case BluetoothAdapter.STATE_TURNING_OFF:
+     //                   Log.d(TAG, "Bluetooth: STATE TURNING OFF");
+     //                   break;
+     //               case BluetoothAdapter.STATE_TURNING_ON:
+     //                   Log.d(TAG, "Bluetooth: STATE TURNING ON");
+     //                   break;
+     //               case BluetoothAdapter.STATE_ON:
+     //                   Log.d(TAG, "Bluetooth: STATE ON");
+     //                   break;
+     //           }
+     //       }
 
-        }
-    };
+    //    }
+    // };
 
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        unregisterReceiver(mBroadastReceiver1);
-    }
+    //@Override
+    //protected void onDestroy(){
+    //    super.onDestroy();
+    //    unregisterReceiver(mBroadastReceiver1);
+    //}
 
 
 
