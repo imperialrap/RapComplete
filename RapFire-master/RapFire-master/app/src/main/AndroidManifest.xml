@@ -10,11 +10,11 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <!-- use for bluetooth operations -->
-    <uses-permission android:name="android.permission.BLUETOOTH"  />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"  />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"  />
-    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"  />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />
 
     <application
         android:allowBackup="true"
@@ -44,11 +44,11 @@
             android:label="@string/title_activity_reset_password"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".HomeScreen" />
-        <activity android:name=".History" />
         <activity android:name=".Graphs" />
         <activity android:name=".LasTraining" />
         <activity android:name=".BestTraining" />
-        <activity android:name=".StartTrianing"></activity>
+        <activity android:name=".Start_Training" />
+        <activity android:name=".StartTraining"></activity>
     </application>
 
 </manifest>

@@ -33,7 +33,7 @@ public class Graphs extends AppCompatActivity {
     }
 
     public void onClickBack(View view){
-        Intent intent = new Intent(this, Home_Screen.class);
+        Intent intent = new Intent(this, HomeScreen.class);
         startActivity(intent);
     }
 }

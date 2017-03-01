@@ -32,17 +32,13 @@ public class HomeScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickHistory(View view){
-
-    }
-
     public void onClickGraphs(View view){
         Intent intent = new Intent(this, Graphs.class);
         startActivity(intent);
     }
 
     public void onClickLastTraining(View view){
-        Intent intent = new Intent(this, LasTraining.class);
+        Intent intent = new Intent(this, LastTraining.class);
         startActivity(intent);
     }
 
@@ -52,7 +48,7 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     public void onClickStartTraining(View view){
-        Intent intent = new Intent(this, StartTrianing.class);
+        Intent intent = new Intent(this, StartTraining.class);
         startActivity(intent);
     }
 }
