@@ -265,4 +265,10 @@ public class MainActivity extends AppCompatActivity {
             auth.removeAuthStateListener(authListener);
         }
     }
+
+    // when you click the back button, it returns to Home_Screen
+    public void onClickBack(View view) {
+        Intent intent = new Intent(this, HomeScreen.class);
+        startActivity(intent);
+    }
 }

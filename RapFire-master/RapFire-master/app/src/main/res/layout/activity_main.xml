@@ -156,6 +156,16 @@
             android:textColor="@android:color/white"
             android:textStyle="bold" />
 
+        <Button
+            android:text="@string/MainScreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/buttonBack"
+            android:onClick="onClickBack"/>
+
     </LinearLayout>
 
     <android.support.design.widget.AppBarLayout
