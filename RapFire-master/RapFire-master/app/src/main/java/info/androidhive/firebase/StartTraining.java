@@ -18,6 +18,7 @@ package info.androidhive.firebase;
     import android.widget.Button;
     import android.widget.TextView;
     import android.widget.Toast;
+    import android.os.Message;
 
 
 public class StartTraining extends AppCompatActivity {
@@ -197,31 +198,60 @@ public class StartTraining extends AppCompatActivity {
             // member streams are final
             try {
                 tmpIn = socket.getInputStream();
+            } catch (IOException e) {
             }
-            catch (IOException e) { }
 
             mmInStream = tmpIn;
         }
 
         public void run() {
-            byte[] buffer = new byte[256]; // buffer store for the stream
-            int bytes; // bytes returned from read()
+            byte[] buffer = new byte[1024]; // buffer store for the stream
+
+            int bytes = 0; // bytes returned from read()
+            int begin = 0;
 
             // Keep listening to the InputStream until an exception occurs
             while (true) {
                 try {
                     // Read from the InputStream
-                    bytes = mmInStream.read(buffer);// Get number of bytes and message in "buffer"
-
-                    h.obtainMessage(RECIEVE_MESSAGE, bytes, -1, buffer).sendToTarget();
+                    bytes = mmInStream.read(buffer, bytes, buffer.length - bytes);
+                    // Get number of bytes and message in "buffer"
+                    for (int i = begin; i < bytes; i++) {
+                        if (buffer[i] == "#".getBytes()[0]) {
+                            mHandler.obtainMessage(1, begin, i, buffer).sendToTarget();
+                            begin = i + 1;
+                            if (i == bytes - 1)
+                                bytes = 0;
+                            begin = 0;
+                        }
+                    }
+                } catch (IOException e) {
+                    break;
+                    //h.obtainMessage(RECIEVE_MESSAGE, bytes, -1, buffer).sendToTarget();
                     // Send to message queue Handler
                 }
-                catch (IOException e) {
-                    break;
-                }
+
             }
         }
     }
+
+
+    Handler mHandler = new Handler()
+    {
+        @Override
+        public void handleMessage(Message msg) {
+            byte[] writeBuf = (byte[])msg.obj;
+            int begin = (int)msg.arg1;
+            int end = (int)msg.arg2;
+
+            switch(msg.what){
+                case 1:
+                    String writeMessage  = new String(writeBuf);
+                    writeMessage = writeMessage.substring(begin, end);
+                    break;
+            }
+        }
+    };
 
     // when you click the back button, it returns to Home_Screen
     public void onClickBack(View view) {
