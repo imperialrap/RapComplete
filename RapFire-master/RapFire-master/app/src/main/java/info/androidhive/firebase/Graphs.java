@@ -32,6 +32,8 @@ public class Graphs extends AppCompatActivity {
         graph.addSeries(series);
     }
 
+    
+
     public void onClickBack(View view){
         Intent intent = new Intent(this, HomeScreen.class);
         startActivity(intent);

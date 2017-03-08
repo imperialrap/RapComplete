@@ -5,15 +5,19 @@ package info.androidhive.firebase;
     import android.content.IntentFilter;
     import android.support.v7.app.AppCompatActivity;
     import android.os.Bundle;
+    import android.util.AttributeSet;
     import android.util.Log;
     import android.view.View;
     import android.bluetooth.BluetoothAdapter;
     import android.widget.Button;
     import android.content.Context;
+    import android.widget.PopupWindow;
+    import android.widget.TextView;
 
 public class StartTraining extends AppCompatActivity {
 
         private final String TAG = "Start_Training";
+        // private Context context = "Connect Bluetooth to HC-05";
 
         BluetoothAdapter mBluetoothAdapter;
 
@@ -30,6 +34,7 @@ public class StartTraining extends AppCompatActivity {
 
         public void onClickStartRecording(View view) {
             enableDisableBT1();     // tests if bluetooth is on
+            takeInData();
         }
 
         public void onClickStopRecording(View view){
@@ -44,11 +49,14 @@ public class StartTraining extends AppCompatActivity {
                 Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                 startActivity(enableIntent);
 
+
+                // PopupWindow (Context context, AttributeSet attrs)
+
                 IntentFilter BTIntent = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
                 registerReceiver(mBroadcastReceiver1, BTIntent);
             }
             else if(mBluetoothAdapter.isEnabled()){
-                Log.d(TAG, "enableDisableBT: Bluetooth already ON");
+                Log.d(TAG, "enableDisableBT: Bluetooth already ON, please pair with HC05");
             }
 
         }
@@ -63,6 +71,10 @@ public class StartTraining extends AppCompatActivity {
             else if(mBluetoothAdapter.isEnabled()){
                 mBluetoothAdapter.disable();
             }
+
+        }
+
+        public void takeInData(){
 
         }
 
